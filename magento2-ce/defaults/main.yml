@@ -1,22 +1,22 @@
 ---
 nginx_vhosts: [
   {
-    name: '{{ magento_vhost_domain }}',
-    aliases: ['www.{{ magento_vhost_domain }}'],
-    doc_root: '{{ magento_document_root }}',
-    http_port: '80',
-    ssl_port: '443',
-    template: 'magento2',
-    phpmyadmin: 'False'
+    name: "{{ magento_vhost_domain }}",
+    aliases: ["www.{{ magento_vhost_domain }}"],
+    doc_root: "{{ magento_document_root }}",
+    http_port: "80",
+    ssl_port: "443",
+    template: "magento2",
+    phpmyadmin: "False"
   }
 ]
-nginx_vhost_dir: '/etc/nginx/conf.d'
-magento_vhost_alias: ''
-tz: 'Etc/UTC'
+nginx_vhost_dir: "/etc/nginx/conf.d"
+magento_vhost_alias: ""
+tz: "Etc/UTC"
 nginx_vhost_user: nginx
 magento_http_port: 80
-magento_document_root: '/var/www/vhosts/{{ magento_vhost_domain }}/httpdocs'
-magento_vhost_domain: 'example.com'
+magento_document_root: "/var/www/vhosts/{{ magento_vhost_domain }}/httpdocs"
+magento_vhost_domain: "example.com"
 magento_admin_user: magento
 magento_admin_pass: P@$$w0rd1
 magento_admin_fname: Magento
@@ -26,7 +26,7 @@ magento_admin_email: magento@example.com
 # Begin Linux system user vars
 
 magento_os_user: "magento"
-magento_os_group: "www-data"
+magento_os_group: "nginx"
 
 # Begin database vars
 
@@ -41,7 +41,7 @@ magento_sftp_password: M@g3nt0
 
 #mysql_root_user: root
 #mysql_root_password: P@$$w0rd
-#mysql_host_ip: 'localhost'
+#mysql_host_ip: "localhost"
 
 magento_create_db: yes
 
