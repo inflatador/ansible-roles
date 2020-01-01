@@ -17,17 +17,7 @@
     state: present
   with_items: "{{ common_packages }}"
   when: ansible_os_family == "RedHat"
-
-- name: Add /usr/local/bin to PATH
-  copy:
-    content: |
-             export PATH=$PATH:/usr/local/bin
-    dest: /etc/profile.d/add_usrlocalbin_path.sh
-    mode: 0644
-    owner: root
-    group: root
-         
-    
+      
 - name: Enable NTP service
   service:
     name: "{{ ntp_service }}"
