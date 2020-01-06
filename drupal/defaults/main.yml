@@ -16,3 +16,17 @@ drupal_db_name: drupal
 
 drupal_user: drupal
 drupal_password: Drup@l
+
+
+nginx_vhosts: [
+  {
+    name: "{{ drupal_domain }}",
+    aliases: ["www.{{ drupal_domain }}"],
+    doc_root: "{{ drupal_docroot }}",
+    http_port: "80",
+    ssl_port: "443",
+    template: "drupal",
+    phpmyadmin: "False",
+    phpfpm_user: "nginx"
+  }
+  ]
