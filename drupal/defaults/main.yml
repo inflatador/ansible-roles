@@ -7,7 +7,7 @@ apache_vhosts: [
 ]
 
 drupal_domain: example.com
-drupal_docroot: '{{ nginx_vhost_root }}/{{ drupal_domain }}/httpdocs/web'
+drupal_docroot: "{{ nginx_vhost_root }}/{{ drupal_domain }}/httpdocs/web"
 
 drupal_db_user: drupal
 drupal_db_password: drup@l
@@ -16,3 +16,17 @@ drupal_db_name: drupal
 
 drupal_user: drupal
 drupal_password: Drup@l
+
+
+nginx_vhosts: [
+  {
+    name: "{{ drupal_domain }}",
+    aliases: ["www.{{ drupal_domain }}"],
+    doc_root: "{{ drupal_docroot }}",
+    http_port: "80",
+    ssl_port: "443",
+    template: "drupal",
+    phpmyadmin: "False",
+    phpfpm_user: "nginx"
+  }
+  ]

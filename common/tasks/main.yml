@@ -17,9 +17,8 @@
     state: present
   with_items: "{{ common_packages }}"
   when: ansible_os_family == "RedHat"
-
-    
-- name: Enable NTPD
+      
+- name: Enable NTP service
   service:
     name: "{{ ntp_service }}"
     state: started
